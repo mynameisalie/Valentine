@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will you be my valentine?</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+   <div id="valentine">
+      <h1 id="title">Will you be my valentine?</h1>
+      <main>
+         <div>
+             <button id="p">As long as you love me~</button>
+         </div>
+         <div>
+             <audio id="myAudio" controls>
+                 <source src="song/song.mp3" type="audio/mp3">
+                 <button onClick="playMusic()">Play</button>
+                 <button onClick="pauseMusic()">Pause</button>
+                 <button onClick="stopMusic()">Stop</button>
+             </audio>
+         </div>
+         <div id="answer">
+             <button id="button1">Yes</button>
+             <button id="button2">Let me think :<< </button>
+         </div>
+         <div id="gifPlease">
+             <img id="gif1" src="img/gif1.gif" alt="please img">
+         </div>
+         <div>
+             <button id="button3">Don't go yet, Click me please</button>
+         </div>
+      </main>
+   </div>
+
+<script src="./script.js"></script>
+</body>
+</html>

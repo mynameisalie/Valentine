@@ -1,0 +1,62 @@
+body {
+    background-color: #ffcccc;
+    color: #e48181;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+}
+
+#answer {
+    color: #e48181;
+    font-family: 'Pacifico', cursive;
+}
+
+#button1, #button2 {
+    background-color: #f9ecec;
+    color: #e48181;
+    font-family: 'Pacifico', cursive;
+    border: none;
+    font-size: 25px;
+    border-radius: 8px; /* Điều này tạo góc bo tròn cho khung của nút */
+    margin: 8px;
+}
+#button3 {
+    background-color: #f9ecec;
+    color: #e48181;
+    font-family: 'Pacifico', cursive;
+    border: none;
+    margin: 8px;
+    font-size: 25px;
+    visibility: hidden;
+    border-radius: 8px;
+}
+
+#title {
+    margin: 20px;
+    font-size: 100px;
+}
+
+#gifPlease {
+    margin: 30px;
+}
+
+#remind {
+   visibility: hidden;
+}
+
+#myAudio {
+    visibility: hidden;
+
+}
+
+#p{
+    visibility: hidden;
+    background-color: #f9ecec;
+    color: #e48181;
+    font-family: 'Pacifico', cursive;
+    border: none;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+
+
