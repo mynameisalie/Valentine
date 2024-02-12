@@ -27,6 +27,7 @@ function stopMusic() {
 // <button onClick="stopMusic()">Stop</button>
 
 function afterYes() {
+    playMusic();
     beValentine.innerHTML = "Thanks for saying Yes";
 
     // buttonYes.innerHTML = "Food"
@@ -55,7 +56,7 @@ function cOl() {
     buttonClick.addEventListener("click", gift);
 }
 
-function  gift() {
+function gift() {
     beValentine.innerHTML = "What gift do you want?";
     buttonYes.innerHTML = "Food";
     buttonThink.innerHTML = "Me";
@@ -70,11 +71,12 @@ function  gift() {
     buttonClick.style.visibility = "hidden";
 }
 
-function  foodie() {
+function foodie() {
     beValentine.innerHTML = "Just DM me what u want to eat, okay? (you can choose both UwU <3)"
     buttonYes.style.visibility = "visible";
     buttonYes.innerHTML = "Coffee Date"
-    buttonThink.innerHTML = "Still me"
+    buttonThink.innerHTML = "Just eat"
+    buttonThink.disabled = true;
     buttonThink.style.visibility = "visible";
     buttonClick.style.visibility = "visible";
     buttonClick.addEventListener("click", theEnd);
@@ -92,7 +94,7 @@ function gdt() {
     gifQ.src = "img/gif7.gif";
 }
 
-function  gdt2() {
+function gdt2() {
     beValentine.innerHTML = "Okay just DM me too okay? or you want keyring handmade? or something?"
     buttonClick.addEventListener("click", theEnd);
     buttonYes.style.visibility = "hidden";
@@ -101,7 +103,7 @@ function  gdt2() {
     gifQ.src = "img/gif8.gif";
 }
 
-function  theEnd() {
+function theEnd() {
     beValentine.innerHTML = "Thanks for being by my side <3";
     buttonYes.style.visibility = "hidden";
     buttonThink.style.visibility = "hidden";
