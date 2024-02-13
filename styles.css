@@ -19,6 +19,7 @@ body {
     border-radius: 8px; /* Điều này tạo góc bo tròn cho khung của nút */
     margin: 8px;
 }
+
 #button3 {
     background-color: #f9ecec;
     color: #e48181;
@@ -40,7 +41,7 @@ body {
 }
 
 #remind {
-   visibility: hidden;
+    visibility: hidden;
 }
 
 #myAudio {
@@ -48,7 +49,7 @@ body {
 
 }
 
-#p{
+#p {
     visibility: hidden;
     background-color: #f9ecec;
     color: #e48181;

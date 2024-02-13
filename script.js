@@ -22,24 +22,17 @@ function stopMusic() {
 }
 
 
-// <button onClick="playMusic()">Play</button>
-// <button onClick="pauseMusic()">Pause</button>
-// <button onClick="stopMusic()">Stop</button>
-
 function afterYes() {
     playMusic();
     beValentine.innerHTML = "Thanks for saying Yes";
 
-    // buttonYes.innerHTML = "Food"
-    // buttonThink.innerHTML = "Me";
-    // buttonThink.style.cursor = "pointer"
     gifQ.src = "img/giphy.gif";
     gifQ.style.margin = "1px;";
     buttonClick.style.visibility = "visible";
     buttonYes.style.visibility = "hidden";
     buttonThink.style.visibility = "hidden";
-    songA.style.visibility="visible";
-    pOfSong.style.visibility="visible";
+    songA.style.visibility = "visible";
+    pOfSong.style.visibility = "visible";
 }
 
 function choose() {
@@ -51,7 +44,7 @@ function choose() {
 
 function cOl() {
     beValentine.innerHTML = "I love you so muchhhhhh!";
-    gifQ.style.visibility="visible";
+    gifQ.style.visibility = "visible";
     gifQ.src = "img/gif3.gif";
     buttonClick.addEventListener("click", gift);
 }
