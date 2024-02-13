@@ -1,11 +1,15 @@
 const buttonYes = document.getElementById("button1");
 const buttonThink = document.getElementById("button2");
-const beValentine = document.getElementById("title");
+const beValentineTitle = document.getElementById("title");
 const gifQ = document.getElementById("gif1");
 const buttonClick = document.getElementById("button3")
 let audio = document.getElementById("myAudio")
 const songA = document.getElementById("myAudio");
 const pOfSong = document.getElementById("p");
+
+// Data
+const dataArray = [];
+
 
 // Các hàm điều khiển âm nhạc
 function playMusic() {
@@ -24,7 +28,15 @@ function stopMusic() {
 
 function afterYes() {
     playMusic();
-    beValentine.innerHTML = "Thanks for saying Yes";
+
+    // Tạo data
+    const data = {
+        question: beValentineTitle.textContent, // Lấy câu hỏi
+        answer: buttonYes.textContent
+    };
+    dataArray.push(data);
+
+    beValentineTitle.innerHTML = "Thanks for saying Yes";
 
     gifQ.src = "img/giphy.gif";
     gifQ.style.margin = "1px;";
@@ -36,21 +48,30 @@ function afterYes() {
 }
 
 function choose() {
-    beValentine.innerHTML = "Just to let you know that...";
+    console.log(dataArray);
+
+    // Lấy data
+    const data = {
+        question: beValentineTitle.textContent,
+        answer: buttonClick.textContent
+    }
+    dataArray.push(data);
+
+    beValentineTitle.innerHTML = "Just to let you know that...";
     gifQ.style.visibility = "hidden";
     buttonClick.innerHTML = "->";
     buttonClick.addEventListener("click", cOl);
 }
 
 function cOl() {
-    beValentine.innerHTML = "I love you so muchhhhhh!";
+    beValentineTitle.innerHTML = "I love you so muchhhhhh!";
     gifQ.style.visibility = "visible";
     gifQ.src = "img/gif3.gif";
     buttonClick.addEventListener("click", gift);
 }
 
 function gift() {
-    beValentine.innerHTML = "What gift do you want?";
+    beValentineTitle.innerHTML = "What gift do you want?";
     buttonYes.innerHTML = "Food";
     buttonThink.innerHTML = "Me";
     gifQ.src = "img/gif4.gif";
@@ -65,7 +86,7 @@ function gift() {
 }
 
 function foodie() {
-    beValentine.innerHTML = "Just DM me what u want to eat, okay? (you can choose both UwU <3)"
+    beValentineTitle.innerHTML = "Just DM me what u want to eat, okay? (you can choose both UwU <3)"
     buttonYes.style.visibility = "visible";
     buttonYes.innerHTML = "Coffee Date"
     buttonThink.innerHTML = "Just eat"
@@ -79,7 +100,7 @@ function foodie() {
 }
 
 function gdt() {
-    beValentine.innerHTML = "I know you just want to see what happen when you click this!!!"
+    beValentineTitle.innerHTML = "I know you just want to see what happen when you click this!!!"
     buttonClick.style.visibility = "visible";
     buttonYes.style.visibility = "hidden";
     buttonThink.style.visibility = "hidden";
@@ -88,7 +109,7 @@ function gdt() {
 }
 
 function gdt2() {
-    beValentine.innerHTML = "Okay just DM me too okay? or you want keyring handmade? or something?"
+    beValentineTitle.innerHTML = "Okay just DM me too okay? or you want keyring handmade? or something?"
     buttonClick.addEventListener("click", theEnd);
     buttonYes.style.visibility = "hidden";
     buttonThink.style.visibility = "hidden";
@@ -97,7 +118,7 @@ function gdt2() {
 }
 
 function theEnd() {
-    beValentine.innerHTML = "Thanks for being by my side <3";
+    beValentineTitle.innerHTML = "Thanks for being by my side <3";
     buttonYes.style.visibility = "hidden";
     buttonThink.style.visibility = "hidden";
     buttonClick.style.visibility = "hidden";
