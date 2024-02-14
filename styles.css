@@ -8,6 +8,8 @@ body {
 #answer {
     color: #e48181;
     font-family: 'Pacifico', cursive;
+    display: flex;
+    justify-content: center;
 }
 
 #button1, #button2 {
@@ -18,6 +20,7 @@ body {
     font-size: 25px;
     border-radius: 8px; /* Điều này tạo góc bo tròn cho khung của nút */
     margin: 8px;
+
 }
 
 #button3 {
@@ -59,5 +62,55 @@ body {
     border-radius: 8px;
 }
 
+#answerText {
+    background-color: #f9ecec;
+    color: #e48181;
+    font-family: 'Pacifico', cursive;
+    border: none;
+    font-size: 25px;
+    border-radius: 8px;
+    margin: 8px 8px 8px 80px;
+    text-align: center;
+}
 
+#submitQ {
+    background-color: #f9ecec;
+    color: #e48181;
+    font-family: 'Pacifico', cursive;
+    border: none;
+    margin: 8px;
+    font-size: 20px;
+    border-radius: 8px;
+}
 
+.send-message {
+    display: none;
+}
+
+.choice {
+    visibility: hidden;
+}
+
+#subject {
+    background-color: #f9ecec;
+    color: #e48181;
+    font-family: 'Pacifico', cursive;
+    border: none;
+    margin: 8px;
+    font-size: 20px;
+    border-radius: 8px;
+}
+
+#message {
+    background-color: #f9ecec;
+    color: #e48181;
+    font-family: 'Pacifico', cursive;
+    border: none;
+    margin: 8px;
+    font-size: 20px;
+    border-radius: 8px;
+}
+
+.label-mail {
+    font-size: 25px;
+}

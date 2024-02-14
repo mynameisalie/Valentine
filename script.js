@@ -6,12 +6,15 @@ const buttonClick = document.getElementById("button3")
 let audio = document.getElementById("myAudio")
 const songA = document.getElementById("myAudio");
 const pOfSong = document.getElementById("p");
+const answerWant = document.getElementById("answerText");
+
+let phase;
 
 // Data
 const dataArray = [];
 
 
-// Các hàm điều khiển âm nhạc
+// Control play music
 function playMusic() {
     audio.play();
 }
@@ -29,10 +32,10 @@ function stopMusic() {
 function afterYes() {
     playMusic();
 
-    // Tạo data
+    // Create data
     const data = {
-        question: beValentineTitle.textContent, // Lấy câu hỏi
-        answer: buttonYes.textContent
+        question: beValentineTitle.textContent, // Get question
+        answer: buttonYes.textContent // Get answer
     };
     dataArray.push(data);
 
@@ -48,12 +51,10 @@ function afterYes() {
 }
 
 function choose() {
-    console.log(dataArray);
-
-    // Lấy data
+    // Create data
     const data = {
-        question: beValentineTitle.textContent,
-        answer: buttonClick.textContent
+        question: beValentineTitle.textContent, // Get question
+        answer: buttonClick.textContent // Get answer
     }
     dataArray.push(data);
 
@@ -80,37 +81,60 @@ function gift() {
     buttonYes.style.margin = "15px";
     buttonThink.style.margin = "15px"
     buttonThink.style.cursor = "pointer";
+
+    buttonClick.style.visibility = "hidden";
+
+    // Add event listener
     buttonYes.addEventListener("click", foodie);
     buttonThink.addEventListener("click", gdt)
-    buttonClick.style.visibility = "hidden";
 }
 
 function foodie() {
-    beValentineTitle.innerHTML = "Just DM me what u want to eat, okay? (you can choose both UwU <3)"
+    phase = "foodie";
+
+    beValentineTitle.innerHTML = "(you can choose both UwU <3)"
+
     buttonYes.style.visibility = "visible";
     buttonYes.innerHTML = "Coffee Date"
+    buttonYes.style.cursor = "default";
+
     buttonThink.innerHTML = "Just eat"
     buttonThink.disabled = true;
     buttonThink.style.visibility = "visible";
-    buttonClick.style.visibility = "visible";
-    buttonClick.addEventListener("click", theEnd);
-    buttonYes.style.cursor = "default";
     buttonThink.style.cursor = "default";
+
+    answerWant.style.visibility = "visible";
+
+    buttonClick.style.visibility = "visible";
+
     gifQ.src = "img/gif5.gif";
+
+    const choiceNodes = document.getElementsByClassName("choice");
+    choiceNodes[0].style.visibility = "visible";
+    choiceNodes[1].style.visibility = "visible";
+
+    buttonClick.addEventListener("click", theEnd);
 }
 
 function gdt() {
     beValentineTitle.innerHTML = "I know you just want to see what happen when you click this!!!"
-    buttonClick.style.visibility = "visible";
+
     buttonYes.style.visibility = "hidden";
     buttonThink.style.visibility = "hidden";
-    buttonClick.addEventListener("click", gdt2);
+    answerWant.style.visibility = "hidden";
+
     gifQ.src = "img/gif7.gif";
+
+    buttonClick.style.visibility = "visible";
+    buttonClick.addEventListener("click", gdt2);
 }
 
 function gdt2() {
-    beValentineTitle.innerHTML = "Okay just DM me too okay? or you want keyring handmade? or something?"
+    phase = "gdt";
+
+    beValentineTitle.innerHTML = "Is there anything you want? or you want keyring handmade? or something?"
     buttonClick.addEventListener("click", theEnd);
+    answerWant.style.visibility = "visible";
     buttonYes.style.visibility = "hidden";
     buttonThink.style.visibility = "hidden";
     buttonClick.style.visibility = "visible";
@@ -119,11 +143,63 @@ function gdt2() {
 
 function theEnd() {
     beValentineTitle.innerHTML = "Thanks for being by my side <3";
+
+    // Display input node
+    const answerInput = document.getElementsByClassName("send-message")[0];
+    answerInput.style.display = "inline";
+
+    // Check phase
+    if (phase === "foodie") {
+        const foodieNode = document.getElementsByName("foodie");
+
+        let foodieChoice;
+        for (let i = 0; i < foodieNode.length; i++) {
+            if (foodieNode[i].checked) {
+                foodieChoice = foodieNode[i].value;
+            }
+        }
+
+        let choiceDisplay;
+        if (foodieChoice === "coffee") {
+            choiceDisplay = "Coffee Date";
+        } else if (foodieChoice === "eat") {
+            choiceDisplay = "Just eat";
+        }
+
+        // Load choice into answer text
+        answerWant.value = choiceDisplay;
+
+        // Prevent change value
+        answerWant.disabled = true;
+
+        // Hide radio buttons
+        const choiceNodes = document.getElementsByClassName("choice");
+        choiceNodes[0].style.visibility = "hidden";
+        choiceNodes[1].style.visibility = "hidden";
+    }
+
     buttonYes.style.visibility = "hidden";
     buttonThink.style.visibility = "hidden";
     buttonClick.style.visibility = "hidden";
     gifQ.style.visibility = "visible"
     gifQ.src = "img/gif6.gif";
+
+    // Change page
+    const buttonSend = document.getElementById("submitQ");
+    buttonSend.addEventListener("click", () => {
+        // Create data
+        const data = {
+            question: beValentineTitle.textContent,
+            answer: answerWant.value
+        }
+        dataArray.push(data);
+
+        // Save processed data in local storage
+        localStorage.setItem("valentineData", JSON.stringify(dataArray))
+
+        window.location.href = "mail.html";
+    })
+
 }
 
 buttonClick.style.cursor = "pointer";

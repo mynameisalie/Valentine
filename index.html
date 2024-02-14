@@ -24,9 +24,25 @@
                 <button onClick="stopMusic()">Stop</button>
             </audio>
         </div>
+
+        <div class="send-message">
+            <input id="answerText" type="text" placeholder="What do you want?">
+            <button id="submitQ">Send</button>
+        </div>
+
         <div id="answer">
-            <button id="button1">Yes</button>
-            <button id="button2">Let me think :<<</button>
+            <div class="container">
+                <button id="button1">Yes</button>
+                <div class="choice">
+                    <input type="radio" id="coffee" name="foodie" value="coffee"/>
+                </div>
+            </div>
+            <div class="container">
+                <button id="button2">Let me think :<<</button>
+                <div class="choice">
+                    <input type="radio" id="eat" name="foodie" value="eat"/>
+                </div>
+            </div>
         </div>
         <div id="gifPlease">
             <img id="gif1" src="img/gif1.gif" alt="please img">
